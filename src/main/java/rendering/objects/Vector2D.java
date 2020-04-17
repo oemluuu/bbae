@@ -35,12 +35,14 @@ public class Vector2D {
     //Polar
 
     public double getRadAngle() {
-        return (y / Math.abs(y) * Math.acos(x / getLenght()) + Math.PI * 2) % (Math.PI * 2);
+        if (y == 0) {
+            return (x / Math.abs(x) * Math.PI / 2 + Math.PI * 3 / 2) % (Math.PI * 2);
+        } else {
+            return (y / Math.abs(y) * Math.acos(x / getLenght()) + Math.PI * 2) % (Math.PI * 2);
+        }
     }
 
     public double getLenght() {
         return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
     }
-
-
 }
